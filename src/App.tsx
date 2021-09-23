@@ -469,7 +469,7 @@ export class Layout extends Component<ILayoutProps, ILayoutState> {
       else {
         
         // パネルにTab表示
-        this.dockRef.dockMove(mock, mock.parent as PanelData, "middle");
+        //this.dockRef.dockMove(mock, mock.parent as PanelData, "middle");
       }
     }
   }
