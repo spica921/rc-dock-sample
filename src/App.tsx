@@ -34,20 +34,21 @@ interface IFormTab {
 }
 
 const FormTabBase: React.ForwardRefRenderFunction<IFormTab, FormTabProps> = (props, ref) => {
+  const { value } = props;
   const [count, setCount] = useState(0);
   useEffect(
     () => {
-      console.log("FormTabBase", "mounted", props.value);
+      console.log("FormTabBase", "mounted", value);
     },
-    []
+    [value]
   );
   useEffect(
     () => {
-      console.log("FormTabBase", "updated", props.value);
+      console.log("FormTabBase", "updated", value);
     }
   );
-  
-  console.log("FormTabBase", "render", props.value);
+
+  console.log("FormTabBase", "render", value);
   useEffect(
     () => {
       return () => {
@@ -110,7 +111,7 @@ const FormTabBase: React.ForwardRefRenderFunction<IFormTab, FormTabProps> = (pro
   return (
     <div>
       <p>
-        <span>Mock value = {props.value}</span>
+        <span>Mock value = {value}</span>
       </p>
       <div>
         <div>
@@ -460,14 +461,14 @@ export class Layout extends Component<ILayoutProps, ILayoutState> {
             }
           );
         } else {
-          
+
           // パネルにTab追加
           this.dockRef.dockMove(mock, mytab, "middle");
         }
       }
       //
       else {
-        
+
         // パネルにTab表示
         //this.dockRef.dockMove(mock, mock.parent as PanelData, "middle");
       }
